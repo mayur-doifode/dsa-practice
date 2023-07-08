@@ -3,7 +3,7 @@ package com.datastructure.trees;
 import java.util.Random;
 
 public class BST {
-    public class Node {
+    public static class Node {
         public int data;
         public Node left, right;
 
@@ -43,16 +43,15 @@ public class BST {
     public void populateRandom(int size) {
         for (int i = 0; i < size; i++) {
             int n = new Random().nextInt(100);
-            System.out.println(n + " ");
             root = insert(root, n);
         }
     }
 
     public void populateFromArray(int[] arr) {
         System.out.print("\nInput = ");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-            root = insert(root, arr[i]);
+        for (int j : arr) {
+            System.out.print(j + " ");
+            root = insert(root, j);
         }
     }
 

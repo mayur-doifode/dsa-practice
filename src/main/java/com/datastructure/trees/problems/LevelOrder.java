@@ -6,8 +6,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class LevelOrder extends BST {
-    Queue<Node> tempQueue = new LinkedList<Node>();
+    Queue<Node> tempQueue = new LinkedList<>();
 
+    /*
+    The approach uses a queue to perform level order traversal on a binary tree.
+    It starts with the root node in the queue, then iteratively dequeues nodes, prints their data, and enqueues their left and right children.
+     A null node is added to the queue after each level to mark the end of that level. The process continues until all nodes have been traversed.
+     */
     void performLevelOrder() {
         Node n = tempQueue.poll();
 

@@ -13,7 +13,6 @@ public class CountNodes extends BST {
 
     public static void main(String[] args) {
         CountNodes tree = new CountNodes();
-//        tree.populateFromArray(new int[]{8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15});
         tree.populateRandom(11);
         System.out.println("\nans = " + tree.countOfNodes(tree.root));
 

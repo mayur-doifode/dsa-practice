@@ -49,8 +49,39 @@ public class SinglyLinkedList {
 
     public void populateRandom(int size) {
         for (int i = 0; i < size; i++) {
-            add(new Random().nextInt(1000));
+            add(new Random().nextInt(100));
         }
     }
 
+    public static void main(String[] args) {
+        SinglyLinkedList linkedList = new SinglyLinkedList();
+
+        // Populating the linked list with numbers from 0 to 9
+        linkedList.populate();
+
+        // Printing the initial state of the linked list
+        System.out.print("Linked List: ");
+        linkedList.print();
+
+        // Adding a new node with data 10 to the end of the linked list
+        linkedList.add(10);
+
+        // Printing the updated linked list
+        System.out.print("Linked List after adding 10: ");
+        linkedList.print();
+
+        // Populating the linked list with numbers from 20 to 29
+        linkedList.populate(20, 30);
+
+        // Printing the updated linked list
+        System.out.print("Linked List after populating from 20 to 29: ");
+        linkedList.print();
+
+        // Populating the linked list with random numbers
+        linkedList.populateRandom(5);
+
+        // Printing the updated linked list
+        System.out.print("Linked List after populating with random numbers: ");
+        linkedList.print();
+    }
 }

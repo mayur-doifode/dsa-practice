@@ -2,39 +2,29 @@ package com.datastructure.trees.problems;
 
 import com.datastructure.trees.BST;
 
-// Perform an in-order traversal of the binary tree and store the elements in a list.
-// If the resulting list is sorted in ascending order, then the tree is a binary search tree.
+
 public class CheckIfBinaryTree extends BST {
-
-
-    boolean checkIfBinaryTree(Node root) {
+    /*
+    It recursively checks each node in the tree and validates if the node's value falls within the range defined by its parent nodes.
+    If the value is outside the valid range, it returns false. The recursion continues for the left and right subtrees, updating the range accordingly.
+     */
+    boolean checkIfBinaryTree(Node root, int min, int max) {
         if (root == null) {
             return true;
         }
-        boolean left = true, right = true;
-        if (root.left != null) {
-            if (root.data >= root.left.data) {
-                left = checkIfBinaryTree(root.left);
-            } else {
-                return false;
-            }
-
+        if (root.data <= min || root.data > max) {
+            return false;
         }
-        if (root.right != null) {
-            if (root.data <= root.right.data) {
-                right = checkIfBinaryTree(root.right);
-            } else {
-                return false;
-            }
-
-        }
-
-        return left && right;
-
+        return checkIfBinaryTree(root.left, min, root.data) && checkIfBinaryTree(root.right, root.data, max);
     }
 
     public static void main(String[] args) {
-
-
+        CheckIfBinaryTree t1 = new CheckIfBinaryTree();
+        t1.populateRandom(10);
+        if (t1.checkIfBinaryTree(t1.root, Integer.MIN_VALUE, Integer.MAX_VALUE)) {
+            System.out.println("tree is binary");
+        } else {
+            System.out.println("tree is NOT binary");
+        }
     }
 }
